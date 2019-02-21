@@ -10,6 +10,7 @@ def initialize(name)
   @hygiene = 8
 end
 
+# custom setter method
 def happiness=(points)
   if points > 10
     @happiness = 10
@@ -84,4 +85,5 @@ def start_conversation(person, topic)
     return "blah blah blah blah blah"
   end
 end
+
 end
