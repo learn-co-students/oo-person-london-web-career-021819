@@ -5,13 +5,6 @@ class Person
   attr_reader :name, :happiness, :hygiene
   attr_accessor :bank_account
 
-  def name #getter attr_reader
-    @name
-  end
-
-  def name=(new_name) #setter attr_writer
-    @name = new_name
-  end
 
   def initialize(name)
     @name = name
@@ -54,7 +47,6 @@ class Person
   end
 
   def take_bath
-    self.hygiene=(self.hygiene+4)
     self.hygiene += 4 #self.hygiene = self.hygiene + 4
     "♪ Rub-a-dub just relaxing in the tub ♫"
   end
@@ -68,18 +60,21 @@ class Person
   def call_friend(friend)
     self.happiness += 3
     friend.happiness += 3
-    if friend.name == "Felix"
-      "Hi #{friend}! It's #{@name}. How are you?"
+    "Hi #{friend.name}! It's #{@name}. How are you?"
+  end
+
+  def start_conversation(friend, topic)
+    if topic == "politics"
+      self.happiness -= 2
+      friend.happiness -= 2
+      "blah blah partisan blah lobbyist"
+    elsif topic == "weather"
+      self.happiness += 1
+      friend.happiness += 1
+      "blah blah sun blah rain"
+    else
+      "blah blah blah blah blah"
     end
   end
 
 end
-
-
-#
-#
-# p1 = Person.new("Khang")
-#
-#
-# binding.pry
-# "lalal"
